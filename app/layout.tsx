@@ -2,6 +2,8 @@ import "@/styles/globals.css"
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from "@/lib/utils"
+import MobileNav from "@/components/mobileNav"
+import Navbar from "@/components/navbar"
 export const metadata = {
   title: 'Vercel Postgres Demo with Kysely',
   description:
@@ -26,14 +28,8 @@ export default function RootLayout({
         inter.variable
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className="flex items-center justify-center gap-6 h-[64px] ">
-        <p>Home</p>
-        <p>Home</p>
-        <p>Home</p>
-        <p>Home</p>
-        </div>
+       <Navbar/>
         {children}
-        
       </ThemeProvider>
         </body>
     </html>

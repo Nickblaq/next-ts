@@ -25,20 +25,38 @@
   display: flex;
 }
 
+
+.dark .ce-header,
+.dark .cdx-list__item::marker,
+.dark .cdx-list__item,
+.dark .cdx-input,
 .dark .ce-paragraph {
   color: rgb(55 65 81 / 0.8);
+  /* color: rgb(229 231 235); */
 }
 
+
+/* .ce-header,
+.cdx-list__item::marker,
+.cdx-list__item,
+.cdx-input,
 .ce-paragraph {
   color: rgb(229 231 235 / 0.8);
+} */
+
+
+.cdx-quote__text {
+  min-height: 20px;
+  margin-bottom: 10px;
 }
+
 
 .dark .ce-popover__item-icon,
 .dark .ce-conversion-tool__icon {
 	background-color: theme('colors.muted.DEFAULT');
 	box-shadow: none;
 }
-
+.dark .cdx-input
 .dark .cdx-search-field {
 	border-color: theme('colors.border');
 	background: theme('colors.input');

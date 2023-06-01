@@ -38,7 +38,7 @@ export default async function EditorPage({ params}: EditorPageProps) {
 
      const post= {
         id: '1',
-        title: 'Szn Title',
+        title: 'Blog Title',
         content: mockData,
         published: false
      } 

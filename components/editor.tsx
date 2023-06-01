@@ -99,12 +99,24 @@ export default function Editor ( {post}: EditorProps) {
                 tools: {
                   code: Code,
                   embed: Embed,
-                  header: Header,
-                  linkTool: LinkTool,
+                  header: {
+                    class: Header,
+                    inlineToolbar: ['bold', 'italic', 'quote']
+                  },
+                  linkTool: {
+                    class: LinkTool,
+                    inlineToolbar: ['bold', 'italic', 'quote', 'link']
+                  },
                   list: List,
                   inlineCode: InlineCode,
-                  image: Image,
-                  paragraph: Paragraph,
+                  image: {
+                    class: Image,
+                    inlineToolbar: ['link']
+                  },
+                  paragraph: {
+                    class: Paragraph,
+                    inlineToolbar: ['link']
+                  },
                   table: Table,
                   quote: Quote
                 },
@@ -140,34 +152,35 @@ export default function Editor ( {post}: EditorProps) {
       async function onSubmit(data: FormData) {
         setIsSaving(true)
     
-        const blocks = await ref.current?.save()
-    
-        const response = await fetch(`/api/posts/${post.id}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: data.title,
-            content: blocks,
-          }),
-        })
+        const blockData = await ref.current?.save()
+          console.log('this is block data', blockData)
+        // const response = await fetch(`/api/posts/${post.id}`, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     title: data.title,
+        //     content: blocks,
+        //   }),
+        // })
     
         setIsSaving(false)
     
-        if (!response?.ok) {
-          return toast({
-            title: "Something went wrong.",
-            description: "Your post was not saved. Please try again.",
-            variant: "destructive",
-          })
-        }
+        // if (!response?.ok) {
+        //   return toast({
+        //     title: "Something went wrong.",
+        //     description: "Your post was not saved. Please try again.",
+        //     variant: "destructive",
+        //   })
+        // }
     
         router.refresh()
     
-        return toast({
-          description: "Your post has been saved.",
-        })
+        return 
+        // toast({
+        //   description: "Your post has been saved.",
+        // })
       }
     
 
@@ -200,7 +213,7 @@ export default function Editor ( {post}: EditorProps) {
         </div>
         <div className="prose prose-stone space-y-10  w-full dark:prose-invert">
         <TextareaAutosize 
-        className="w-full resize-none appearance-none overflow-hidden bg-transparent text-3xl dark:text-gray-700/80 text-gray-200/80 font-bold focus:outline-none"
+        className="w-full resize-none appearance-none overflow-hidden bg-transparent text-3xl text-gray-700/80 font-bold focus:outline-none"
         autoFocus
         id="title"
         defaultValue={post.title}

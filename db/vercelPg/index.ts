@@ -29,7 +29,7 @@ export interface PostTable {
   tags: string[] | null;
   content: OutputData;
   published: boolean;
-  created_by: string | Date;
+  created_at: string | Date;
   updated_at?: string | Date;
 }
 

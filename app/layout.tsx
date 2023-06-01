@@ -1,6 +1,7 @@
-import './globals.css'
+import "@/styles/globals.css"
 import { Inter } from 'next/font/google'
-
+import { ThemeProvider } from '@/components/theme-provider'
+import { cn } from "@/lib/utils"
 export const metadata = {
   title: 'Vercel Postgres Demo with Kysely',
   description:
@@ -19,8 +20,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.variable}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(
+        'bg-background font-sans antialiased',
+        inter.variable
+      )}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <div className="flex items-center justify-center gap-6 h-[64px] ">
+        <p>Home</p>
+        <p>Home</p>
+        <p>Home</p>
+        <p>Home</p>
+        </div>
+        {children}
+        
+      </ThemeProvider>
+        </body>
     </html>
   )
 }

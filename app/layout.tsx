@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils"
 import MobileNav from "@/components/mobileNav"
 import Navbar from "@/components/navbar"
 export const metadata = {
-  title: 'Vercel Postgres Demo with Kysely',
+  title: 'Revenue Reconcilliation for CPAs',
   description:
-    'A simple Next.js app with Vercel Postgres as the database and Kysely as the ORM',
+    'Revenue Reconcilliation app. Built-in algorithmic mathematical finance strategies for revenue reconsillation',
 }
 
 const inter = Inter({
@@ -28,7 +28,6 @@ export default function RootLayout({
         inter.variable
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-       <Navbar/>
         {children}
       </ThemeProvider>
         </body>
